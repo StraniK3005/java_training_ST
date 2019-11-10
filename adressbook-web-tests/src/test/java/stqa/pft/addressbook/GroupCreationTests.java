@@ -42,7 +42,7 @@ public class GroupCreationTests {
     }
 
     private void returnToGroupPage() {
-        wd.findElement(By.linkText("Logout")).click();
+        wd.findElement(By.linkText("group page")).click();
     }
 
     private void submitGroupCreation() {
