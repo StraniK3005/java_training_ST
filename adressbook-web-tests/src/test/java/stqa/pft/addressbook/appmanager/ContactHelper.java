@@ -44,4 +44,14 @@ public class ContactHelper extends HelperBase {
     public void deleteContactFromMainPage() {
         click(By.xpath("//input[@value='Delete']"));
     }
+
+    public void createContact(ContactData contact) {
+        fillContactForm(contact);
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
 }
