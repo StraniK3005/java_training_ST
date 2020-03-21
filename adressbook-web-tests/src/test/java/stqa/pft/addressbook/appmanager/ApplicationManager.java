@@ -24,14 +24,16 @@ public class ApplicationManager {
     public void init() {
         if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
+            wd.manage().window().maximize();
         } else if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
+            wd.manage().window().maximize();
         } else if (browser.equals(BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
 
 
-        wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         sessionHelper = new SessionHelper(wd);
         groupHelper = new GroupHelper(wd);
